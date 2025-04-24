@@ -3,60 +3,9 @@ import { motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 import product_image from "../assets/images/morivea/1.png";
 import CyclingAnimatedText from "./CyclingAnimatedText";
+import { containerVariants, itemVariants, shapeVariants, imageVariants } from "@/app/AnimationVariants";
 
 export default function Hero() {
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.3,
-            },
-        },
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.6, ease: "easeOut" },
-        },
-    };
-
-    const imageVariants = {
-        hidden: { opacity: 0, scale: 0.9 },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            transition: {
-                duration: 0.8,
-                ease: [0.6, 0.01, 0.1, 0.95], // Changed -0.05 to 0.1 (example)
-                delay: 0.5,
-            },
-        },
-    };
-
-    const shapeVariants = {
-        float: {
-            y: ["0rem", "0.5rem", "0rem", "-0.5rem", "0rem"],
-            transition: {
-                duration: 8,
-                ease: "easeInOut",
-                repeat: Infinity,
-            },
-        },
-        rotate: {
-            rotate: [0, 10, -5, 0],
-            transition: {
-                duration: 15,
-                ease: "easeInOut",
-                repeat: Infinity,
-            },
-        },
-    };
-
     return (
         <section className="relative  h-[110vh]  md:h-[90vh] bg-[#f8f7f3] overflow-hidden flex flex-col">
             <div className="wrapper relative -top-25 md:-top-5">
@@ -64,7 +13,8 @@ export default function Hero() {
                 <motion.div
                     className="absolute top-[0%] left-[-5%] w-72 h-72 sm:w-[45rem] sm:h-[45rem] bg-green-300/25 rounded-full opacity-60 blur-3xl pointer-events-none"
                     variants={shapeVariants}
-                    animate="float"
+                    initial="hidden"
+                    whileInView="float"
                 />
                 {/* Main Content Area */}
                 <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 flex-grow flex items-center relative z-10 pt-28 pb-16 lg:pt-32 lg:pb-20">
@@ -72,12 +22,12 @@ export default function Hero() {
                         className="flex flex-col-reverse lg:flex-row items-center justify-between w-full gap-12 lg:gap-16"
                         variants={containerVariants}
                         initial="hidden"
-                        animate="visible"
+                        whileInView="visible"
                     >
                         {/* --- Text Content --- */}
                         <motion.div className="w-full lg:w-[55%] text-center lg:text-left" variants={itemVariants}>
                             <motion.h1
-                                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-light mb-6 text-[#333] !leading-tight tracking-tight"
+                                className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-light mb-6 text-[#333] !leading-tight tracking-tight"
                                 variants={itemVariants}
                             >
                                 Nature's{" "}
@@ -121,7 +71,7 @@ export default function Hero() {
                         >
                             <motion.div
                                 className="absolute inset-0 flex justify-center items-center"
-                                animate={{ rotate: 45 }}
+                                whileInView={{ rotate: 45 }}
                                 transition={{ repeat: Infinity, repeatType: "reverse", duration: 10, ease: "linear" }}
                             >
                                 <div className="w-[85%] h-[85%] bg-gradient-to-br from-[#96bb97] via-[#96bb97]/50 to-transparent rounded-[50%_50%_70%_30%_/_40%_60%_40%_60%] transform rotate-[-15deg]"></div>
@@ -130,7 +80,7 @@ export default function Hero() {
                             {/* Floating Image */}
                             <motion.div
                                 className="relative z-10 w-[70%] sm:w-[60%] lg:w-[75%]"
-                                animate={{ y: ["0%", "-3%", "0%"] }}
+                                whileInView={{ y: ["0%", "-3%", "0%"] }}
                                 transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
                             >
                                 <Image
@@ -153,7 +103,7 @@ export default function Hero() {
                     <motion.button
                         className="text-xs uppercase tracking-widest text-[#2c5e2e]/60 flex flex-col items-center group"
                         initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
+                        whileInView={{ opacity: 1 }}
                         transition={{ delay: 1.5, duration: 1 }}
                         onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })} // Smooth scroll down
                         aria-label="Scroll down"

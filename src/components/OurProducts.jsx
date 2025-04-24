@@ -1,38 +1,49 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import morivea from "../assets/images/morivea/2.png";
 import glowCha from "../assets/images/glowCha/2.png";
 import cumorriha from "../assets/images/cumorriha/2.png";
-
+import { motion } from "framer-motion";
+import { containerVariants, itemVariants, titleVariants } from "@/app/AnimationVariants";
 const products = [
     {
-        name: "Brightening Eye Cream",
+        name: "Morivea Oleifera Cream",
         image: morivea,
     },
     {
-        name: "Natural Mineral Foundation",
+        name: "Eye Contour Serum",
         image: glowCha,
     },
     {
-        name: "Overnight Recovery Mask",
+        name: "Cumorriha IBS Solution",
         image: cumorriha,
     },
 ];
 
 export default function OurProducts() {
     return (
-        <section className="py-10 md:px-10 font-serif font-medium ">
+        <section className="py-10 md:px-10 font-serif font-medium">
             <div className="container mx-auto px-4">
-                <div className="flex justify-between items-center mb-8">
-                    <h2 className="text-3xl md:text-[2.4rem] text-[#333] font-medium italic">Our Products</h2>
-                    <Link href="/products">
-                        <span className="text-green-600 hover:text-green-700 transition">View All →</span>
-                    </Link>
-                </div>
+                <motion.div
+                    className="w-full mb-8 text-center"
+                    initial="hidden"
+                    whileInView="visible"
+                    variants={titleVariants}
+                >
+                    <h2 className="text-4xl italic font-serif tracking-tight text-green-800 sm:text-[2.5rem]">
+                        Our Products?
+                    </h2>
+                </motion.div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <motion.div
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                >
                     {products.map((product, index) => (
-                        <div key={index} className="group cursor-pointer">
+                        <motion.div key={index} className="group cursor-pointer" variants={itemVariants}>
                             <div className="relative h-80 bg-gray-100 rounded-lg overflow-hidden">
                                 <div className="absolute top-4 left-4 bg-green-500 text-white text-xs px-3 py-1 rounded-full z-10">
                                     NEW
@@ -45,12 +56,17 @@ export default function OurProducts() {
                                     className="group-hover:scale-105 transition-transform duration-500 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                                 />
                             </div>
-                            <div className="mt-4">
-                                <h3 className="text-xl text-gray-800 pl-2">{product.name}</h3>
+                            <div className="mt-4 w-full flex justify-center">
+                                <motion.h3
+                                    className="text-lg italic text-green-900/85 text-center px-6 bg-[#d8f1d8]/40 w-fit rounded-full"
+                                    whileHover={{ scale: 1.05, backgroundColor: "rgba(216, 241, 216, 0.7)" }}
+                                >
+                                    {product.name}
+                                </motion.h3>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

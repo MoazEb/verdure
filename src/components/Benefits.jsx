@@ -1,3 +1,6 @@
+import { containerVariants, itemVariants, titleVariants } from "@/app/AnimationVariants";
+import { motion } from "framer-motion";
+
 const list = [
     {
         icon: (
@@ -82,19 +85,39 @@ const list = [
 ];
 export default function Benefits() {
     return (
-        <section className="py-16 bg-white">
+        <section className="py-8 md:px-10  bg-gradient-to-br from-[#f8f7f3] to-green-50 ">
             <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                {/* Section Title */}
+                <div className="w-full mx-auto mb-4 lg:mb-12">
+                    <motion.h2
+                        variants={titleVariants}
+                        initial="hidden"
+                        whileInView={"visible"}
+                        className="text-4xl italic font-serif tracking-tight text-gray-700 sm:text-[2.5rem] text-center"
+                    >
+                        Why Choose Verdūre?
+                    </motion.h2>
+                </div>
+                <motion.div
+                    className="grid grid-cols-1 md:grid-cols-4 gap-4"
+                    initial="hidden"
+                    whileInView={"visible"}
+                    variants={containerVariants}
+                >
                     {list.map((feature, index) => (
-                        <div key={index} className="p-6 text-center">
+                        <motion.div
+                            key={index}
+                            variants={itemVariants}
+                            className="p-6 text-center relative overflow-hidden border border-green-300 rounded-xl"
+                        >
                             {feature.icon}
-                            <h3 className="text-[1.65rem] font-serif mt-4 mb-2 text-green-700 italic tracking-tight">
+                            <h3 className="text-[1.65rem] font-serif mt-4 mb-2 text-gray-900 italic tracking-tight relative z-10">
                                 {feature.title}
                             </h3>
-                            <p className="text-base text-[#555] leading-relaxed">{feature.description}</p>
-                        </div>
+                            <p className="text-base text-[#555] leading-relaxed relative z-10">{feature.description}</p>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );
