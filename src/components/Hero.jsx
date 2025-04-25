@@ -4,6 +4,7 @@ import { FiArrowRight } from "react-icons/fi";
 import product_image from "../assets/images/morivea/1.png";
 import CyclingAnimatedText from "./CyclingAnimatedText";
 import { containerVariants, itemVariants, shapeVariants, imageVariants } from "@/app/AnimationVariants";
+import Link from "next/link";
 
 export default function Hero() {
     return (
@@ -52,15 +53,19 @@ export default function Hero() {
                                 className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4"
                                 variants={itemVariants}
                             >
-                                <button className="group relative inline-flex items-center justify-center px-8 py-3.5 bg-[#3a8b3d] hover:bg-[#518b54] text-white text-sm uppercase tracking-wider font-light transition duration-300 rounded cursor-pointer overflow-hidden">
-                                    <span className="relative z-10">Shop Collection</span>
-                                    {/* Subtle hover effect */}
-                                    <span className="absolute inset-0 bg-white/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-0"></span>
-                                </button>
-                                <button className="group inline-flex items-center justify-center px-8 py-3.5 border border-[#2c5e2e]/50 text-[#2c5e2e] text-sm uppercase tracking-wider font-light transition duration-300 hover:bg-[#e9efe9] hover:border-[#2c5e2e] rounded cursor-pointer">
-                                    Explore Our Ethos
-                                    <FiArrowRight className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300" />
-                                </button>
+                                <Link href={"/products"}>
+                                    <button className="group relative inline-flex items-center justify-center px-8 py-3.5 bg-[#3a8b3d] hover:bg-[#518b54] text-white text-sm uppercase tracking-wider font-light transition duration-300 rounded cursor-pointer overflow-hidden">
+                                        <span className="relative z-10">View Collection</span>
+                                        {/* Subtle hover effect */}
+                                        <span className="absolute inset-0 bg-white/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-0"></span>
+                                    </button>
+                                </Link>
+                                <Link href={"/about"}>
+                                    <button className="group inline-flex items-center justify-center px-8 py-3.5 border border-[#2c5e2e]/50 text-[#2c5e2e] text-sm uppercase tracking-wider font-light transition duration-300 hover:bg-[#e9efe9] hover:border-[#2c5e2e] rounded cursor-pointer">
+                                        About Our Team
+                                        <FiArrowRight className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300" />
+                                    </button>
+                                </Link>
                             </motion.div>
                         </motion.div>
 
@@ -88,8 +93,6 @@ export default function Hero() {
                                     alt="verdure Signature Botanical Serum in frosted glass bottle"
                                     width={0}
                                     height={0}
-                                    layout="responsive"
-                                    objectFit="contain"
                                     className="drop-shadow-xl"
                                     priority
                                 />

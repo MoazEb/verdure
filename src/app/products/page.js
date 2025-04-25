@@ -1,6 +1,6 @@
 import OurProducts from "@/components/OurProducts";
 
-export default function Home() {
+export default function Products() {
   return (
 
     <main>

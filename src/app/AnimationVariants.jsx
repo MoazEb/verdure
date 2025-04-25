@@ -25,7 +25,7 @@ export const imageVariants = {
         scale: 1,
         transition: {
             duration: 0.8,
-            ease: [0.6, 0.01, 0.1, 0.95], // Changed -0.05 to 0.1 (example)
+            ease: [0.6, 0.01, 0.1, 0.95],
             delay: 0.5,
         },
     },
