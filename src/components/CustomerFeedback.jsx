@@ -8,6 +8,7 @@ export default function CustomerFeedbackWhiteBgGreenAccents() {
     const [feedback, setFeedback] = useState("");
     const [status, setStatus] = useState("idle"); // idle | submitting | success | error
     const [errorMessage, setErrorMessage] = useState("");
+    const userAgent = navigator.userAgent;
 
     const handleInputChange = (event) => {
         setFeedback(event.target.value);
@@ -23,7 +24,7 @@ export default function CustomerFeedbackWhiteBgGreenAccents() {
                 method: "POST",
                 mode: "no-cors",
                 redirect: "follow",
-                body: JSON.stringify({ feedback: feedback }),
+                body: JSON.stringify({ feedback: feedback, userAgent: userAgent }),
             });
             setStatus("success");
             setFeedback("");
@@ -37,18 +38,22 @@ export default function CustomerFeedbackWhiteBgGreenAccents() {
     if (status === "success") {
         return (
             <section className="py-16 pb-24 bg-white">
-                <div className="container mx-auto px-4 text-center">
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView={"visible"}
+                    className="container mx-auto px-4 text-center"
+                >
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
+                        variants={itemVariants}
+                        initial="hidden"
+                        whileInView={"visible"}
                         className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8 sm:p-10 border border-gray-200"
                     >
                         <h3 className="text-2xl font-semibold text-green-700 mb-4">Thanks for submitting!</h3>
                         <p className="text-gray-600">We've received your feedback.</p>
-                        {/* Note: This message appears even if the server had an internal error, due to no-cors limitations. */}
                     </motion.div>
-                </div>
+                </motion.div>
             </section>
         );
     }
@@ -60,7 +65,6 @@ export default function CustomerFeedbackWhiteBgGreenAccents() {
                     variants={titleVariants}
                     initial="hidden"
                     whileInView={"visible"}
-                    viewport={{ once: true, amount: 0.2 }}
                     className="mb-10 text-center"
                 >
                     <h2 className="text-4xl md:text-[2.5rem] italic font-light text-gray-800 mb-3 font-serif tracking-tight">
@@ -74,7 +78,6 @@ export default function CustomerFeedbackWhiteBgGreenAccents() {
                     initial="hidden"
                     whileInView={"visible"}
                     variants={containerVariants}
-                    viewport={{ once: true, amount: 0.2 }}
                     className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8 sm:p-10 border border-gray-200"
                 >
                     <motion.form
@@ -82,7 +85,6 @@ export default function CustomerFeedbackWhiteBgGreenAccents() {
                         initial="hidden"
                         whileInView={"visible"}
                         variants={containerVariants}
-                        viewport={{ once: true, amount: 0.2 }}
                         className="flex flex-col gap-5"
                     >
                         <motion.label variants={itemVariants} htmlFor="feedback-textarea-wa" className="sr-only">
