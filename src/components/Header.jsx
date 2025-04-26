@@ -126,6 +126,7 @@ export default function Header() {
                             {navItems.map((item, index) => (
                                 <motion.div
                                     key={index}
+                                    onClick={() => setMenuOpen(false)}
                                     custom={index}
                                     variants={itemVariants}
                                     initial="hidden"

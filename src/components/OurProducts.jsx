@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { containerVariants, itemVariants, titleVariants } from "@/app/AnimationVariants";
+import { containerVariants, itemVariants, titleVariants } from "@/app/variants/AnimationVariants";
 import { products } from "@/app/products/data";
 
 export default function OurProducts() {

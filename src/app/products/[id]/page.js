@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
-import { itemVariants, containerVariants } from "@/app/AnimationVariants";
+import { itemVariants, containerVariants } from "@/app/variants/AnimationVariants";
 import { products } from "../data";
 import { useParams } from "next/navigation";
 import NotFound from "@/components/NotFound";

@@ -1,4 +1,4 @@
-// import { Geist, Geist_Mono } from "next/font/google";
+import { poppins } from '@/assets/fonts/fonts';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import Footer from "@/components/Footer";

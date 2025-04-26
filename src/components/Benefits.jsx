@@ -1,4 +1,4 @@
-import { containerVariants, itemVariants, titleVariants } from "@/app/AnimationVariants";
+import { containerVariants, itemVariants, titleVariants } from "@/app/variants/AnimationVariants";
 import { motion } from "framer-motion";
 
 const list = [

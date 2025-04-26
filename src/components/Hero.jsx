@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 import product_image from "../assets/images/morivea/1.png";
 import CyclingAnimatedText from "./CyclingAnimatedText";
-import { containerVariants, itemVariants, shapeVariants, imageVariants } from "@/app/AnimationVariants";
+import { containerVariants, itemVariants, shapeVariants, imageVariants } from "@/app/variants/AnimationVariants";
 import Link from "next/link";
 
 export default function Hero() {

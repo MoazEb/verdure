@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { containerVariants, itemVariants } from "@/app/AnimationVariants";
+import { containerVariants, itemVariants } from "@/app/variants/AnimationVariants";
 export default function NotFound() {
     return (
         <main className="min-h-screen bg-[#f8fbf8] font-serif flex items-center justify-center py-16 px-4">
