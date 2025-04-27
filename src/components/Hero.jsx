@@ -33,20 +33,20 @@ export default function Hero() {
                             >
                                 Nature's{" "}
                                 <CyclingAnimatedText
-                                    texts={["gentle touch,", "radiant glow,", "softening touch,"]}
+                                    texts={["gentle touch,", "radiant glow,", "green solution,"]}
                                     tag="span"
                                     className="text-[#2c5e2e] italic font-normal"
                                 />
                                 <br />
-                                Radiant results.
+                                Powerful results.
                             </motion.h1>
 
                             <motion.p
                                 className="text-base sm:text-lg text-[#555] mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed"
                                 variants={itemVariants}
                             >
-                                Experience skincare that nurtures your skin and respects the earth. Discover potent,
-                                plant-derived formulas crafted for visible vitality.
+                                Experience the power of nature, the power of green light. Verdure, discover potent,
+                                plant-derived formulas crafted for visible vitality and real solution for real problems.
                             </motion.p>
 
                             <motion.div
