@@ -54,7 +54,7 @@ export const team = [
     {
         name: "Alaa Ibrahim Sayed",
         role: "Researcher",
-        image: img1,
+        image: m5,
         bio: "Dedicated and disciplined Pharmacy student with diverse work experience in retail and healthcare environments. Known for strong work ethic, punctuality, and high efficiency. Possesses excellent soft skills including communication, teamwork, and adaptability. Currently working in a pharmacy, seeking to grow professionally in the pharmaceutical field.",
     },
 

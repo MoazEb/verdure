@@ -1,19 +1,24 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { containerVariants, itemVariants } from "@/app/variants/AnimationVariants";
-import { team } from "../app/about/data"; // Assuming data.ts is in app/about/
+import { team } from "../app/about/data";
+import { containerVariants, titleVariants } from "@/app/variants/AnimationVariants";
 
 export default function TeamSection() {
     return (
         <section className="py-16 bg-[#f8fbf8] font-serif md:px-10">
-            <div className="container mx-auto px-4">
+            <motion.div
+                initial="hidden"
+                whileInView={"visible"}
+                variants={containerVariants}
+                className="container mx-auto px-4"
+            >
+                {/* Replaced motion.div with div and removed animation props */}
                 <motion.div
+                    initial="hidden"
+                    whileInView={"visible"}
+                    variants={titleVariants}
                     className="text-center mb-16"
-                    initial={{ opacity: 0, y: -20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.6 }}
                 >
                     <h2 className="text-4xl italic font-serif tracking-tight text-green-800 sm:text-[2.5rem] mb-4">
                         Meet Our Team
@@ -24,18 +29,16 @@ export default function TeamSection() {
                     </p>
                 </motion.div>
 
+                {/* Replaced motion.div with div and removed animation props */}
                 <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 gap-12"
-                    variants={containerVariants}
                     initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.1 }}
+                    whileInView={"visible"}
+                    variants={containerVariants}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-12"
                 >
                     {team.map((member, index) => (
-                        <motion.div
+                        <div
                             key={index}
-                            variants={itemVariants}
-                            custom={index}
                             className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
                         >
                             <div className="flex flex-col md:flex-row">
@@ -44,19 +47,10 @@ export default function TeamSection() {
                                     <Image
                                         src={member.image}
                                         alt={member.name}
-                                        fill // Use fill to cover the container
+                                        fill
                                         className="object-cover"
-                                        // loading="lazy" // Already the default, but can be explicit
-                                        placeholder="blur" // Optional: Show blur placeholder
-                                        // You might need to generate blurDataURL if images are external/dynamic
-                                        // blurDataURL={member.blurDataURL} // Example if needed
-                                        sizes="(max-width: 767px) 100vw, (min-width: 768px) 17vw"
-                                        // Explanation for sizes:
-                                        // - Below 'md' (768px): Card takes full width, image container takes full card width (h-64 constraint).
-                                        //   Let's approximate as 100vw for safety, though the height constraint limits it.
-                                        // - 'md' and above: Grid has 2 columns (~50vw per column). Image container is md:w-1/3.
-                                        //   So image width is roughly (1/3) * 50vw = ~16.67vw. Let's use 17vw.
-                                        // Adjust these values based on your actual layout and padding/margins.
+                                        placeholder="blur"
+                                        sizes="(max-width: 767px) 100vw, (min-width: 768px) 17vw" // Keep sizes for optimization
                                     />
                                 </div>
                                 {/* Content Container */}
@@ -70,10 +64,10 @@ export default function TeamSection() {
                                     <p className="text-gray-600 mb-4 text-sm">{member.bio}</p>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </motion.div>
-            </div>
+            </motion.div>
         </section>
     );
 }
