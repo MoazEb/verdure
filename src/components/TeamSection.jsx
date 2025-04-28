@@ -13,7 +13,6 @@ export default function TeamSection() {
                 variants={containerVariants}
                 className="container mx-auto px-4"
             >
-                {/* Replaced motion.div with div and removed animation props */}
                 <motion.div
                     initial="hidden"
                     whileInView={"visible"}
@@ -29,7 +28,6 @@ export default function TeamSection() {
                     </p>
                 </motion.div>
 
-                {/* Replaced motion.div with div and removed animation props */}
                 <motion.div
                     initial="hidden"
                     whileInView={"visible"}
@@ -39,7 +37,7 @@ export default function TeamSection() {
                     {team.map((member, index) => (
                         <div
                             key={index}
-                            className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
+                            className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex"
                         >
                             <div className="flex flex-col md:flex-row">
                                 {/* Image Container */}
@@ -50,7 +48,7 @@ export default function TeamSection() {
                                         fill
                                         className="object-cover"
                                         placeholder="blur"
-                                        sizes="(max-width: 767px) 100vw, (min-width: 768px) 17vw" // Keep sizes for optimization
+                                        sizes="(max-width: 767px) 100vw, (min-width: 768px) 17vw"
                                     />
                                 </div>
                                 {/* Content Container */}

@@ -4,6 +4,7 @@ import img3 from '../../assets/avatars/3.jpg'
 import img4 from '../../assets/avatars/4.jpg'
 import img5 from '../../assets/avatars/5.jpg'
 import img6 from '../../assets/avatars/6.jpg'
+import img7 from '../../assets/avatars/7.webp'
 import habiba from '../../assets/avatars/Habiba.jpg'
 import shahira from '../../assets/avatars/FatmaBhaa.jpg'
 import fatma from '../../assets/avatars/shahira.jpg'
@@ -79,7 +80,7 @@ export const team = [
     {
         name: "Joy Adel Nashed",
         role: "Representative",
-        image: m2,
+        image: img7,
         bio: "A fourth-year pharmacy student seeking to gain practical experience and enhance my skills in a professional environment. Looking to contribute to innovative projects while achieving personal and professional growth."
     },
     {
