@@ -1,4 +1,4 @@
-# Verdure E-commerce Website
+# Verdure Website
 
 ## Overview
 
