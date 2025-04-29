@@ -29,7 +29,7 @@ Verdure is a website for a participant team at the Color Festival in the Faculty
 
 ## Getting Started
 
-1. Clone the repository: `git clone https://github.com/your-username/verdure.git`
+1. Clone the repository: `git clone https://github.com/moazeb/verdure.git`
 2. Install dependencies: `npm install`
 3. Start the development server: `npm run dev`
 
